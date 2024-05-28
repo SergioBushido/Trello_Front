@@ -1,0 +1,31 @@
+<div class="p-6 bg-gray-100 relative rounded shadow">
+  <button (click)="close()" type="button" class="absolute top-3 right-3 focus:outline-none p-2">
+    <fa-icon [icon]="faClose"></fa-icon>
+  </button>
+
+  <form (ngSubmit)="saveTodo()" #todoForm="ngForm">
+    <div class="flex flex-col mb-5">
+      <label for="todoTitle" class="font-semibold text-gray-800">Title</label>
+      <input id="todoTitle" name="title" [(ngModel)]="todo.title" required class="p-2 rounded border" />
+    </div>
+    
+
+    <div class="flex flex-col mb-5">
+      <label for="todoDescription" class="font-semibold text-gray-800">Description</label>
+      <textarea id="todoDescription" name="description" [(ngModel)]="todo.description" class="p-2 rounded border"></textarea>
+    </div>
+    
+  
+    <div class="flex flex-col mb-5">
+      <label for="todoTags" class="font-semibold text-gray-800">Tags</label>
+      <select multiple [(ngModel)]="todo.tagIds" name="todoTags" class="form-select">
+        <option *ngFor="let tag of tags" [value]="tag.id">{{ tag.name }}</option>
+      </select>      
+    </div>
+    
+    
+    <div class="text-right">
+      <button type="submit" class="bg-blue-500 text-white p-2 rounded" [disabled]="!todoForm.valid">Save</button>
+    </div>
+  </form>
+</div>

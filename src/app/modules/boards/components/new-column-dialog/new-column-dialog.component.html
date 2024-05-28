@@ -1,0 +1,15 @@
+<div class="fixed inset-0 bg-gray-600 bg-opacity-50 z-40" style="display: flex; justify-content: center; align-items: center;">
+    <div class="bg-white p-4 rounded-lg shadow-lg w-1/3">
+      <h2 class="text-xl font-bold mb-4">Add New Column</h2>
+      <input type="text" [(ngModel)]="columnTitle"
+             class="border-gray-300 border rounded p-2 w-full"
+             placeholder="Enter column title">
+      <div class="mt-4 flex justify-end">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                (click)="emitTitle()">Add</button>
+        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                (click)="columnTitle = ''">Close</button>
+      </div>
+    </div>
+  </div>
+  
